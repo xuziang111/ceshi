@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<meta charset="UTF-8">
+<head>
+    <title>
+        九宫格绘制
+    </title>
+<style>
+#box{width:330px;
+margin:0 auto;}
+.block0{
+       display:inline-block;
+       background-color: orange;
+       border-radius: 10px;
+       height:100px;
+       width:100px;
+       margin-left:5px;
+       margin-top: 5px;
+        }
+button{
+	width:200px;
+	height:30px;
+	border-radius:10px;
+	
+
+}
+div{
+text-align:center;
+}
+</style>
+</head>
+<body>
+    <div id="box">
+            <div class="block0" id="block0">
+            </div>
+            <div class="block0" id="block1">
+            </div>
+            <div class="block0" id="block2">
+            </div>
+            <div class="block0" id="block3">
+            </div>
+            <div class="block0" id="block4">
+            </div>
+            <div class="block0" id="block5">
+            </div>
+            <div class="block0" id="block6">
+            </div>
+            <div class="block0" id="block7">
+            </div>
+            <div class="block0" id="block8">
+            </div>
+	</div>
+	<div>
+		<button id="bt1">开始闪</button></br><button id="bt2">停止闪</button>
+	</div>
+</body>
+<script>
+var s;
+var baaag = function (){
+for(var j=0;j<9;j++){
+var c = "block" + j;
+document.getElementById(c).style.backgroundColor="orange";
+}
+var getRandomColor=function (){
+	return '#' + Math.floor(Math.random()*0xffffff).toString(16);
+};
+ for(var i=0;i<3;i++){
+ var blocks = new Array("block0","block1","block2","block3","block4","block5","block6","block7","block8");
+ var a = Math.floor(Math.random()*(8-i));
+ var b = blocks[a];   
+ document.getElementById(b).style.backgroundColor=getRandomColor();
+ blcoks = blocks.splice(a,1);
+}
+};
+var bbbbg = function (){
+clearInterval(s);
+for(var j=0;j<9;j++){
+var c = "block" + j;
+document.getElementById(c).style.backgroundColor="orange";
+}
+}
+var t1 = function (){
+s = setInterval(baaag,2000);
+};
+document.getElementById("bt1").onclick=	t1;
+document.getElementById("bt2").onclick= bbbbg;
+</script>
+</html>
